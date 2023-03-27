@@ -1,4 +1,5 @@
 {% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
 
 {% block title %}
   Create Task
@@ -8,6 +9,6 @@
   <h1>Create Task</h1>
   <form action="">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
   </form>
 {% endblock %}

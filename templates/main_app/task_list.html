@@ -5,6 +5,11 @@
 {% endblock %}
 
 {% block content %}
+  <h1>Tasks
+    <a href="{% url 'main_app:task-create' %}" class="btn btn-primary link-to-page">
+      New Task
+    </a>
+  </h1>
   <table class="table">
     <thead>
       <tr>

@@ -5,5 +5,9 @@ Welcome to Task Manager
 {% endblock %}
 
 {% block content %}
-<h1>Welcome to Task Manager</h1>
+<h1>Welcome to Task Manager
+  {% if user.is_authenticated %}
+    user.get_username
+  {% endif %}
+</h1>
 {% endblock %}

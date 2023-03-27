@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from main_app.forms import TaskForm
+from main_app.forms import TaskForm, WorkerCreationForm
 from main_app.models import Task, Worker
 
 
@@ -24,3 +24,9 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
 
 class WorkersListView(LoginRequiredMixin, generic.ListView):
     model = Worker
+
+
+class WorkerCreateView(generic.CreateView):
+    model = Worker
+    form_class = WorkerCreationForm
+    success_url = reverse_lazy("main_app:index")

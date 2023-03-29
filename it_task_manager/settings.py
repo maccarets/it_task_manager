@@ -112,6 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = "main_app.Worker"
 
 LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/login"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

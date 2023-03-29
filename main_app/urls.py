@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from main_app.views import index, TasksListView, WorkersListView, TaskCreateView, WorkerCreateView
 
@@ -9,7 +9,8 @@ urlpatterns = [
 
 
     path("workers", WorkersListView.as_view(), name="worker-list"),
-    path("registration", WorkerCreateView.as_view(), name="registration")
+    path("registration", WorkerCreateView.as_view(), name="registration"),
+    path("", include("django.contrib.auth.urls"))
 ]
 
 app_name = "main_app"

@@ -3,11 +3,13 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from main_app.forms import TaskForm, WorkerCreationForm
+from main_app.forms import TaskForm, WorkerCreationForm, TaskTypeForm
 from main_app.models import Task, Worker, TaskType
 
 
 def index(request):
+    context = {}
+
     return render(request, "main_app/index.html")
 
 
@@ -25,6 +27,13 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
 class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     model = TaskType
     template_name = "main_app/task_type_list.html"
+
+
+class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = TaskType
+    form_class = TaskTypeForm
+    template_name = "main_app/task_type_form.html"
+    success_url = reverse_lazy("main_app:task-type-list")
 
 
 

@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Workers</h1>
+  <h1>Workers
+    <a href="{% url 'main_app:registration' %}" class="btn btn-primary link-to-page">
+      New Worker
+    </a>
+  </h1>
 
   {% for worker in worker_list %}
     {{ worker.username }}

@@ -1,16 +1,16 @@
 <ul class="list-group">
   {% if user.is_authenticated %}
     <li class="list-group-item"><a href="#">{{ user.username }}</a></li>
-    <li class="list-group-item"><a href="{% url "main_app:logout" %}">Logout</a></li>
+    <li class="list-group-item"><a href="{% url "logout" %}">Logout</a></li>
   {% else %}
-    <li class="list-group-item"><a href="{% url "main_app:login" %}">login</a></li>
+    <li class="list-group-item"><a href="{% url "login" %}">login</a></li>
   {% endif %}
 
 
   <br>
   <li class="list-group-item"><a href="{% url "main_app:index" %}">Home</a></li>
   <li class="list-group-item"><a href="{% url "main_app:task-list" %}">Tasks</a></li>
-  <li class="list-group-item"><a href="{% url "main_app:worker-list" %}"">Workers</a></li>
-  <li class="list-group-item"><a href="#">Task Types</a></li>
+  <li class="list-group-item"><a href="{% url "main_app:worker-list" %}">Workers</a></li>
+  <li class="list-group-item"><a href="{% url "main_app:task-types-list" %}">Task Types</a></li>
   <li class="list-group-item"><a href="#">Position</a></li>
 </ul>

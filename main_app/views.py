@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from main_app.forms import TaskForm, WorkerCreationForm
-from main_app.models import Task, Worker
+from main_app.models import Task, Worker, TaskType
 
 
 def index(request):
@@ -20,6 +20,13 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = TaskForm
     template_name = "main_app/task_form.html"
     success_url = reverse_lazy("main_app:task-list")
+
+
+class TaskTypeListView(LoginRequiredMixin, generic.ListView):
+    model = TaskType
+    template_name = "main_app/task_type_list.html"
+
+
 
 
 class WorkersListView(LoginRequiredMixin, generic.ListView):
